@@ -38,7 +38,7 @@ public class Config extends WebSecurityConfigurerAdapter {
                 return authentication;
             }
         });
-        http.mvcMatcher("/planes/**")
+        http.mvcMatcher("/planes/*")
                 .csrf()
                 .disable()
                 .sessionManagement()
