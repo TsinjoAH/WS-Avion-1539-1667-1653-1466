@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/planes/{fkId}/odometers")
-@CrossOrigin(methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@CrossOrigin(methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE,RequestMethod.OPTIONS})
 public class OdometerController extends CrudWithFK<PlaneEntity, PlaneService, Odometer, OdometerService> {
 
     public OdometerController(OdometerService service, PlaneService fkService) {

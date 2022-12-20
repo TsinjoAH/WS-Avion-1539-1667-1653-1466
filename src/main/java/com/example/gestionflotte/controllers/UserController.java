@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@CrossOrigin(methods = {RequestMethod.POST, RequestMethod.GET})
+@CrossOrigin(methods = {RequestMethod.POST, RequestMethod.GET,RequestMethod.OPTIONS})
 public class UserController {
 
     private final LoginService loginService;
