@@ -1,6 +1,7 @@
 package com.example.gestionflotte.models.plane;
 
 import com.example.gestionflotte.models.common.HasID;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,9 +24,11 @@ public class Plane implements HasID {
     private String licensePlate;
 
     @Column
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonIgnore
     private byte[] img;
-
+    @JsonProperty(value = "img",access = JsonProperty.Access.WRITE_ONLY)
+    @Transient
+    private String image;
     public Plane() {
     }
 
@@ -61,7 +64,17 @@ public class Plane implements HasID {
         this.img = img;
     }
 
+
     public String getImgBase64() {
         return new String(getImg());
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+        this.img=this.image.getBytes();
     }
 }
